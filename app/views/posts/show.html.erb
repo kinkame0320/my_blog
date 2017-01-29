@@ -2,6 +2,8 @@
   <h1><%= @post.title %></h1>
   <p>カテゴリ: <%= @post.category %></p>
   <p>投稿日:<%= @post.created_at %></p>
+  <p>投稿者ID:<%= @post.author_id %></p>
+  
   <hr>
   <p>
     <%= simple_format(@post.body) %>

@@ -2,12 +2,19 @@
   <h1><%= @post.title %></h1>
   <p>カテゴリ: <%= @post.category %></p>
   <p>投稿日:<%= @post.created_at %></p>
-  <p>投稿者ID:<%= @post.author_id %></p>
-  
   <hr>
   <p>
     <%= simple_format(@post.body) %>
   </p>
+  
+  <h3>レビュー一覧</h3>
+    <% @post.reviews.each do |review| %>
+  <li><%= review.body %> - <%= review.created_at %></li>
+    <% end %>
+    
+    <h3>投稿</h3>
+    <%= render partial: 'new_review', locals: { review: Review.new(post_id: @post.id) } %>
+  
   <hr>
   <%= link_to "編集", edit_post_path(@post), class: "btn btn-default" %>
   <%= link_to "削除", post_path(@post), class: "btn btn-default", method: :delete %>

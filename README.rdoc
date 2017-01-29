@@ -3,7 +3,11 @@
 ブログ投稿システム
 
 git clone
+
 cd my_blog
-bundle install
+
+bundle instal
+
 rake db:migrate
+
 rake db:seed
